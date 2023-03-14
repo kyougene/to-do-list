@@ -1,3 +1,4 @@
+//loading the header and main content elements into the html
 export default function () {
     const container = document.querySelector('.container')
     const header = document.createElement('header');
