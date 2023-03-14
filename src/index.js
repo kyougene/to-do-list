@@ -11,3 +11,6 @@ fileBar();
 
 import loadFiles from './LoadFiles.js'
 loadFiles();
+
+import mainContent from './LoadTasks';
+mainContent();

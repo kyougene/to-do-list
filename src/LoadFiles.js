@@ -6,19 +6,17 @@ export default function () {
     fileList.setAttribute('class', 'file-list');
     fileBar.appendChild(fileList);
 
-    const fileUl = document.querySelector('.file-list')
-
     const addAFileButton = document.createElement('li');
     addAFileButton.setAttribute('class', 'button-list');
-    addAFileButton.innerHTML = '<button class="button">+Add A File</button>';
+    addAFileButton.innerHTML = '<button class="button">+ Add A File</button>';
     console.log(addAFileButton)
-    fileUl.appendChild(addAFileButton);
+    fileList.appendChild(addAFileButton);
 
     const defaultButton = document.createElement('li');
     defaultButton.setAttribute('class', 'button-list');
     defaultButton.innerHTML = '<button class="button">Default</button>';
     console.log(defaultButton)
-    fileUl.appendChild(defaultButton);
+    fileList.appendChild(defaultButton);
 
     
 }
