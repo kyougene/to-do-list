@@ -22,6 +22,7 @@ body {
     display: grid;
     grid-template-columns: 100%;
     grid-template-rows: 15% 85%;
+    z-index: 1;
 }
 
 /* styling for header */
@@ -113,9 +114,90 @@ header {
     font-size: 1rem;
     width: auto;
     text-align: left;
+    padding: 0;
 }
 
 .add-task-button:hover {
     cursor: pointer;
     background-color: rgba(255, 255, 255, .5);
+}
+
+/* styling for task list item */
+.task-list {
+    padding: 0;
+}
+.task-li {
+    list-style: none;
+    display: flex;
+    justify-content: space-between;
+    border-top: 1px solid black;
+    border-bottom: 1px solid black;
+    padding: 10px;
+}
+
+.task-li:hover {
+    background-color: rgba(255, 255, 255, .5);
+}
+
+.todo-title {
+    flex-grow: 1;
+}
+
+.todo-complete {
+    margin-right: 10px;
+    height: 20px;
+    width: 20px;
+    display: flex;
+    fill: black;
+}
+
+use {
+    height: 100%;
+    width: 100%;
+    cursor: pointer;
+}
+
+.todo-delete {
+    margin-left: 10px;
+    height: 20px;
+    width: 20px;
+}
+
+.todo-delete:hover {
+    cursor: pointer;
+}
+
+/* styling for add task form */
+.form-container {
+    display: none;
+}
+
+.form-container.show{
+    z-index: 2;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: white;
+    border: 1px solid black;
+    border-radius: 5px;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 30%;
+    height: 40%;
+}
+
+.form-title {
+    text-align: center;
+}
+
+.form {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 100%;
+    height: 100%;
 }
