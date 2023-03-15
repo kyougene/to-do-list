@@ -2,15 +2,16 @@ import './styles.css';
 
 
 // loading the header and main content container for the page
-import loadPage from './LoadPage.js';
+import loadPage from './LoadPageHTML.js';
 loadPage();
 
-// loading the file bar 
-import fileBar from './LoadFileBar.js';
-fileBar();
+import taskItem from './CreateListItem.js';
+taskItem();
 
-import loadFiles from './LoadFiles.js'
-loadFiles();
-
-import mainContent from './LoadTasks';
-mainContent();
+const addTaskButton = document.querySelector('.add-task-button');
+const formContainer = document.querySelector('.form-container');
+console.log(formContainer);
+console.log(addTaskButton);
+addTaskButton.addEventListener('click', () => {
+    formContainer.classList.add('show');
+});
