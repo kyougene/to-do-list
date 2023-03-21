@@ -1,4 +1,4 @@
-export default function () {
+export default function (name) {
     const taskUl = document.querySelector('.task-list');
     //new list item for a new task
     const newTaskItem = document.createElement('li');
@@ -13,7 +13,7 @@ export default function () {
     //title of each task
     const taskTitle = document.createElement('div');
     taskTitle.setAttribute('class', 'todo-title');
-    taskTitle.innerText = 'Title'
+    taskTitle.innerText = name;
     newTaskItem.appendChild(taskTitle);
     //task due date display
     const taskDueDate = document.createElement('div');
