@@ -10,6 +10,7 @@ export default function () {
     const form = document.querySelector('.form');
     const cancelButton = document.querySelector('#cancel-button');
     const addButton = document.querySelector('#add-button');
+    const deleteButton = document.querySelectorAll('.todo-delete');
     
     addTaskButton.addEventListener('click', () => {
         formContainer.classList.add('show');
@@ -33,6 +34,14 @@ export default function () {
         form.reset();
         formContainer.classList.remove('show');
     })
+
+    deleteButton.forEach((button)=>{
+        button.addEventListener('click', (e)=>{
+            console.log(e.target);
+        })
+    })
+
+    console.log(deleteButton);
 
     // document.addEventListener('click', (e) => {
     //     if (formContainer.classList.contains('show')) {

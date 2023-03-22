@@ -2,15 +2,18 @@ import { taskArray } from "./EventListeners.js";
 
 export default function ( taskArray ) {
     const taskUl = document.querySelector('.task-list');
+    
     while (taskUl.firstChild) {
         taskUl.removeChild(taskUl.firstChild);
     }
     if (taskArray.length > 0){
+        let counter = 0;
         taskArray.forEach((object) => {
             taskUl.innerContent = '';
             // new list item for a new task
             const newTaskItem = document.createElement('li');
             newTaskItem.setAttribute('class', 'task-li');
+            newTaskItem.setAttribute('data', `${counter}`);
             taskUl.appendChild(newTaskItem);
             //complete or incomplete button for each task
             const taskComplete = document.createElement('svg');
@@ -34,6 +37,11 @@ export default function ( taskArray ) {
             taskDelete.setAttribute('viewBox', '0, 0, 24, 24' );
             taskDelete.innerHTML = '<use xlink:href="./svgs/trash-can.svg#trashcan"></use>';
             newTaskItem.appendChild(taskDelete);
+
+            taskDelete.addEventListener('click', (e)=>{
+                console.log(e.target.parentNode);
+            })
+            counter++;
         })
     }
     else {
