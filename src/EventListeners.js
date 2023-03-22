@@ -9,6 +9,7 @@ export default function () {
     const formContainer = document.querySelector('.form-container');
     const form = document.querySelector('.form');
     const cancelButton = document.querySelector('#cancel-button');
+    const addButton = document.querySelector('#add-button');
     
     addTaskButton.addEventListener('click', () => {
         formContainer.classList.add('show');
@@ -16,6 +17,9 @@ export default function () {
 
     form.addEventListener('submit', (e)=> {
         e.preventDefault();
+    })
+
+    addButton.addEventListener('click', ()=>{
         const taskName = form.elements['task-name'].value;
         const taskDueDate = new Date(form.elements['due-date'].value);
         const task = createTaskObject(taskName, taskDueDate);
