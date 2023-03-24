@@ -13,7 +13,7 @@ export default function ( taskArray ) {
             // new list item for a new task
             const newTaskItem = document.createElement('li');
             newTaskItem.setAttribute('class', 'task-li');
-            newTaskItem.setAttribute('data', `${counter}`);
+            newTaskItem.setAttribute('data-index', `${counter}`);
             taskUl.appendChild(newTaskItem);
             //complete or incomplete button for each task
             const taskComplete = document.createElement('svg');
@@ -38,9 +38,6 @@ export default function ( taskArray ) {
             taskDelete.innerHTML = '<use xlink:href="./svgs/trash-can.svg#trashcan"></use>';
             newTaskItem.appendChild(taskDelete);
 
-            taskDelete.addEventListener('click', (e)=>{
-                console.log(e.target.parentNode);
-            })
             counter++;
         })
     }
