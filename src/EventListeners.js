@@ -8,7 +8,6 @@ export default function () {
     const addTaskButton = document.querySelector('.add-task-button');
     const formContainer = document.querySelector('.form-container');
     const form = document.querySelector('.form');
-    const cancelButton = document.querySelector('#cancel-button');
     const addButton = document.querySelector('#add-button');
     const taskList = document.querySelector('.task-list');
     
