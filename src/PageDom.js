@@ -54,45 +54,45 @@ export default function () {
     const formContainer = document.createElement('div');
     formContainer.setAttribute('class', 'form-container');
     container.appendChild(formContainer);
-    
+    //creating the form title
     const formTitle = document.createElement('h2');
     formTitle.setAttribute('id', 'form-title');
     formTitle.innerText = 'Add A Task';
     formContainer.appendChild(formTitle);
-    
+    //creating the form element
     const form = document.createElement('form');
     form.setAttribute('class', 'form');
     formContainer.appendChild(form);
-    
+    //creating the label for the task name input field
     const taskLabel = document.createElement('label');
     taskLabel.setAttribute('for', 'task-name');
     taskLabel.innerText = 'Task Name:';
     form.appendChild(taskLabel);
-    
+    //creating the task name input field
     const taskName = document.createElement('input');
     taskName.setAttribute('type', 'text');
     taskName.setAttribute('id', 'task-name');
     taskName.setAttribute('name', 'task-name')
     taskName.setAttribute('placeholder', 'Enter Task Name');
     form.appendChild(taskName);
-    
+    //label for the due date field
     const dueDateLabel = document.createElement('label');
     dueDateLabel.setAttribute('for', 'due-date');
     dueDateLabel.innerText = 'Due Date:';
     form.appendChild(dueDateLabel);
-    
+    //creating the due date input field
     const dueDate = document.createElement('input');
     dueDate.setAttribute('type', 'date');
     dueDate.setAttribute('id', 'due-date');
     dueDate.setAttribute('name', 'due-date');
     form.appendChild(dueDate);
-    
+    //button to add a task after form is created
     const addButton = document.createElement('button');
     addButton.setAttribute('type', 'submit');
     addButton.setAttribute('id', 'add-button');
     addButton.innerText = 'Add Task';
     form.appendChild(addButton);
-    
+    //button to cancel and close the form
     const cancelButton = document.createElement('button');
     cancelButton.setAttribute('id', 'cancel-button');
     cancelButton.innerText = 'Cancel';
