@@ -23,7 +23,8 @@ export default function () {
     addButton.addEventListener('click', ()=>{
         const taskName = form.elements['task-name'].value;
         const taskDueDate = new Date(form.elements['due-date'].value);
-        const task = createTaskObject(taskName, taskDueDate);
+        const formattedDueDate = taskDueDate.toLocaleDateString('en-US', { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' });
+        const task = createTaskObject(taskName, formattedDueDate);
         form.reset();
         formContainer.classList.remove('show');
         taskArray.push(task);
