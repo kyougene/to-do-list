@@ -60,4 +60,11 @@ export default function () {
             }
         }
     })
+
+    document.addEventListener('click', (e)=>{
+        if (!(e.target.contains(formContainer)) && !(e.target.contains(addTaskButton))){
+            form.reset();
+            formContainer.classList.remove('show');
+        }
+    })
 }
