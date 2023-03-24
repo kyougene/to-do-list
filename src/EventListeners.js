@@ -30,11 +30,7 @@ export default function () {
         taskArray.push(task);
         updateTask(taskArray);
     })
-    //cancelling and unshowing the form
-    cancelButton.addEventListener('click', ()=>{
-        form.reset();
-        formContainer.classList.remove('show');
-    })
+
     //event listener to delete a task
     taskList.addEventListener('click', (e)=>{
         if (e.target.classList.contains('todo-delete')){
@@ -44,7 +40,7 @@ export default function () {
             updateTask(taskArray);
         }
     })
-    
+    //complete or un-complete button functionality
     taskList.addEventListener('click', (e)=>{
         const completeButton = e.target.closest('.todo-complete');
         if (completeButton) {
@@ -60,7 +56,7 @@ export default function () {
             }
         }
     })
-
+    //closing the form when outside the form is clicked
     document.addEventListener('click', (e)=>{
         if (!(e.target.contains(formContainer)) && !(e.target.contains(addTaskButton))){
             form.reset();

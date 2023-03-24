@@ -92,9 +92,4 @@ export default function () {
     addButton.setAttribute('id', 'add-button');
     addButton.innerText = 'Add Task';
     form.appendChild(addButton);
-    //button to cancel and close the form
-    const cancelButton = document.createElement('button');
-    cancelButton.setAttribute('id', 'cancel-button');
-    cancelButton.innerText = 'Cancel';
-    form.appendChild(cancelButton);
 }
