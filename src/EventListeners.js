@@ -1,5 +1,5 @@
 import createTaskObject from './TaskObjectFactoryFunction.js';
-import CreateListItem from './UpdateTask.js';
+import updateTask from './UpdateTask.js';
 
 let taskArray = [];
 export { taskArray };
@@ -10,7 +10,6 @@ export default function () {
     const form = document.querySelector('.form');
     const cancelButton = document.querySelector('#cancel-button');
     const addButton = document.querySelector('#add-button');
-    const deleteButton = document.querySelectorAll('.todo-delete');
     const taskList = document.querySelector('.task-list');
     
     addTaskButton.addEventListener('click', () => {
@@ -28,7 +27,7 @@ export default function () {
         form.reset();
         formContainer.classList.remove('show');
         taskArray.push(task);
-        CreateListItem(taskArray);
+        updateTask(taskArray);
     })
 
     cancelButton.addEventListener('click', ()=>{
@@ -41,7 +40,7 @@ export default function () {
             const taskItem = e.target.closest('li');
             const index = taskItem.dataset.index;
             taskArray.splice(index, 1);
-            CreateListItem(taskArray);
+            updateTask(taskArray);
         }
     })
 

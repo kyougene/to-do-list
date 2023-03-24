@@ -9,7 +9,6 @@ export default function ( taskArray ) {
     if (taskArray.length > 0){
         let counter = 0;
         taskArray.forEach((object) => {
-            taskUl.innerContent = '';
             // new list item for a new task
             const newTaskItem = document.createElement('li');
             newTaskItem.setAttribute('class', 'task-li');
@@ -24,12 +23,12 @@ export default function ( taskArray ) {
             //title of each task
             const taskTitle = document.createElement('div');
             taskTitle.setAttribute('class', 'todo-title');
-            taskTitle.innerText = `${object.taskName}`;
+            taskTitle.textContent = `${object.taskName}`;
             newTaskItem.appendChild(taskTitle);
             //task due date display
             const taskDueDate = document.createElement('div');
             taskDueDate.setAttribute('class', 'todo-dueDate');
-            taskDueDate.innerText = `${object.dueDate}`;
+            taskDueDate.textContent = `${object.dueDate}`;
             newTaskItem.appendChild(taskDueDate);
             //delete task  button
             const taskDelete = document.createElement('svg');
