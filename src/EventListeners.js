@@ -58,9 +58,9 @@ export default function () {
     })
     //closing the form when outside the form is clicked
     document.addEventListener('click', (e)=>{
-        if (!(e.target.contains(formContainer)) && !(e.target.contains(addTaskButton))){
+        if (!form.contains(e.target) && !formContainer.contains(e.target) && !addTaskButton.contains(e.target)) {
             form.reset();
             formContainer.classList.remove('show');
-        }
-    })
+         }
+    });
 }
