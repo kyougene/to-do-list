@@ -1,7 +1,7 @@
 import createTaskObject from './TaskObjectFactoryFunction.js';
 import updateTask from './UpdateTask.js';
 
-let taskArray = [];
+const taskArray = [];
 export { taskArray };
 
 export default function () {
@@ -12,14 +12,15 @@ export default function () {
     const addButton = document.querySelector('#add-button');
     const taskList = document.querySelector('.task-list');
     
+    //clicking add a task will show the form for a task
     addTaskButton.addEventListener('click', () => {
         formContainer.classList.add('show');
     });
-
+    //preventing default submit behavior on the form
     form.addEventListener('submit', (e)=> {
         e.preventDefault();
     })
-
+    //creating task object from input values, and updating dom to display task
     addButton.addEventListener('click', ()=>{
         const taskName = form.elements['task-name'].value;
         const taskDueDate = new Date(form.elements['due-date'].value);
@@ -29,12 +30,12 @@ export default function () {
         taskArray.push(task);
         updateTask(taskArray);
     })
-
+    //cancelling and unshowing the form
     cancelButton.addEventListener('click', ()=>{
         form.reset();
         formContainer.classList.remove('show');
     })
-
+    //event listener to delete a task
     taskList.addEventListener('click', (e)=>{
         if (e.target.classList.contains('todo-delete')){
             const taskItem = e.target.closest('li');
@@ -43,16 +44,20 @@ export default function () {
             updateTask(taskArray);
         }
     })
-
-
-    // document.addEventListener('click', (e) => {
-    //     if (formContainer.classList.contains('show')) {
-    //         if (!formContainer.contains(e.target)) {
-    //             form.reset();
-    //             formContainer.classList.remove('show');
-    //         }
-    //     }
-    // });
-
-
+    
+    taskList.addEventListener('click', (e)=>{
+        const completeButton = e.target.closest('.todo-complete');
+        if (completeButton) {
+            const taskItem = completeButton.closest('li');
+            const index = taskItem.dataset.index;
+            const task = taskArray[index];
+            task.completed = !(task.completed);
+            if (task.completed){
+                taskItem.classList.add('completed');
+            }
+            else {
+                taskItem.classList.remove('completed');
+            }
+        }
+    })
 }
