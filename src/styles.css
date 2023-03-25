@@ -70,7 +70,7 @@ header {
     margin-top: 20%;
 }
 
-.button-list {
+.button-list, #file-name-button {
     text-decoration: none;
     background-color: transparent;
     border: 1px solid transparent;
@@ -80,7 +80,7 @@ header {
     font-size: 1.2rem;
 }
 
-.button-list:hover {
+.button-list:hover, #file-name-button:hover {
     cursor: pointer;
     background-color: rgba(255, 255, 255, .5);
 }
@@ -113,6 +113,10 @@ background-color: #9f1239;
     background-color: #10b981;
 }
 
+.file-name {
+    list-style: none;
+    margin-bottom: 20px;
+}
 
 
 
