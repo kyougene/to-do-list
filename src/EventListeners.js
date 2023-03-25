@@ -1,9 +1,12 @@
 import createTaskObject from './TaskObjectFactoryFunction.js';
 import updateTask from './UpdateTask.js';
+import createFile from './FileObjectFactoryFunction.js';
+import updateFile from './updateFile.js'
 
 const taskArray = [];
 const fileArray = [];
 export { taskArray };
+export { fileArray };
 
 export default function () {
     const addTaskButton = document.querySelector('.add-task-button');
@@ -13,6 +16,7 @@ export default function () {
     const taskList = document.querySelector('.task-list');
     const addFileButton = document.getElementById('add-file-button');
     const defaultButton = document.getElementById('default-button');
+    
     
     //clicking add a task will show the form for a task
     addTaskButton.addEventListener('click', () => {
@@ -67,17 +71,29 @@ export default function () {
          }
     });
 
-    addFileButton.addEventListener('submit', (e)=>{
-        e.preventDefault();
-    })
-
     addFileButton.addEventListener('click', ()=>{
         const div = document.createElement('div');
         div.setAttribute('class', 'add-file-container');
         div.innerHTML = "<input type='text' name='addFileInput' id='addFileInput' placeholder='Enter File Name'> <button type='submit' id='appendFile'>Add</button> <button id='cancelFile'>Cancel</button>";
         addFileButton.parentNode.replaceChild(div, addFileButton);
+
+        const cancelFileButton = document.getElementById('cancelFile');
+        cancelFileButton.addEventListener('click', ()=>{
+            div.parentNode.replaceChild(addFileButton, div);
+        })
+
+        const appendFileButton = document.getElementById('appendFile');
+        appendFileButton.addEventListener('click', ()=>{
+            const fileName = document.getElementById('addFileInput').value;
+            const newFile = createFile(fileName);
+            fileArray.push(newFile);
+            updateFile(fileArray);
+            div.parentNode.replaceChild(addFileButton, div);
+        })
         
     })
+
+    
 
 
 

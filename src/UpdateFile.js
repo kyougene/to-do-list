@@ -7,6 +7,8 @@ export default function (array) {
 
     array.forEach((object)=> {
         const fileLi = document.createElement('li');
-        fileLi.textContent = `${object.name}`;
+        fileLi.setAttribute('class', 'file-name');
+        fileLi.innerHTML = `<button id='file-name-button'>${object.name}</button>`;
+        fileUl.appendChild(fileLi);
     })
 }
