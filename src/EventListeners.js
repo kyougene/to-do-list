@@ -2,6 +2,7 @@ import createTaskObject from './TaskObjectFactoryFunction.js';
 import updateTask from './UpdateTask.js';
 
 const taskArray = [];
+const fileArray = [];
 export { taskArray };
 
 export default function () {
@@ -10,6 +11,8 @@ export default function () {
     const form = document.querySelector('.form');
     const addButton = document.querySelector('#add-button');
     const taskList = document.querySelector('.task-list');
+    const addFileButton = document.getElementById('add-file-button');
+    const defaultButton = document.getElementById('default-button');
     
     //clicking add a task will show the form for a task
     addTaskButton.addEventListener('click', () => {
@@ -63,4 +66,19 @@ export default function () {
             formContainer.classList.remove('show');
          }
     });
+
+    addFileButton.addEventListener('submit', (e)=>{
+        e.preventDefault();
+    })
+
+    addFileButton.addEventListener('click', ()=>{
+        const div = document.createElement('div');
+        div.setAttribute('class', 'add-file-container');
+        div.innerHTML = "<input type='text' name='addFileInput' id='addFileInput' placeholder='Enter File Name'> <button type='submit' id='appendFile'>Add</button> <button id='cancelFile'>Cancel</button>";
+        addFileButton.parentNode.replaceChild(div, addFileButton);
+        
+    })
+
+
+
 }

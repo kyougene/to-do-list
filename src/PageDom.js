@@ -14,22 +14,28 @@ export default function () {
     const fileBar = document.createElement('div');
     fileBar.setAttribute('class', 'file-bar');
     mainContent.appendChild(fileBar);
+    //container for buttons 
+    const buttonContainer = document.createElement('div');
+    buttonContainer.setAttribute('class', 'button-container');
+    fileBar.appendChild(buttonContainer)
+    //creating the add a file button, as a list item under the file list
+    const addAFileButton = document.createElement('button');
+    addAFileButton.setAttribute('class', 'button-list');
+    addAFileButton.setAttribute('id', 'add-file-button');
+    addAFileButton.textContent = '+ Add A File';
+    buttonContainer.appendChild(addAFileButton);
+    //creating the default file, also as a listem item under the file list
+    const defaultButton = document.createElement('button');
+    defaultButton.setAttribute('class', 'button-list');
+    defaultButton.setAttribute('id', 'defaultButton');
+    defaultButton.textContent = 'Default';
+    buttonContainer.appendChild(defaultButton);
     //creating list of files
     const fileList = document.createElement('ul');
     fileList.setAttribute('class', 'file-list');
     fileBar.appendChild(fileList);
-    //creating the add a file button, as a list item under the file list
-    const addAFileButton = document.createElement('li');
-    addAFileButton.setAttribute('class', 'button-list');
-    addAFileButton.innerHTML = '<button class="button">+ Add A File</button>';
-    fileList.appendChild(addAFileButton);
-    //creating the default file, also as a listem item under the file list
-    const defaultButton = document.createElement('li');
-    defaultButton.setAttribute('class', 'button-list');
-    defaultButton.innerHTML = '<button class="button">Default</button>';
-    fileList.appendChild(defaultButton);
-   
-
+    
+    
     //creating the task container for task content
     const taskContainer = document.createElement('div');
     taskContainer.setAttribute('class', 'task-container');
