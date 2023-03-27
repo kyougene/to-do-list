@@ -43,7 +43,7 @@ export default function () {
     //creating the title for task container
     const taskContainerTitle = document.createElement('div');
     taskContainerTitle.setAttribute('class', 'task-title');
-    taskContainerTitle.innerHTML = '<h2 class="title">Tasks</h2>';
+    taskContainerTitle.innerHTML = '<h2 class="title">Default Tasks</h2>';
     taskContainer.appendChild(taskContainerTitle);
     //add task button
     const addTask = document.createElement('button');

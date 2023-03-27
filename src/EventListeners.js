@@ -14,8 +14,8 @@ export default function () {
     const taskList = document.querySelector('.task-list');
     const addFileButton = document.getElementById('add-file-button');
     const defaultButton = document.getElementById('defaultButton');
-    const fileNameButton = document.querySelector('#file-name-button');
     const fileUl = document.querySelector('.file-list');
+    const taskTitle = document.querySelector('.task-title');
     let currentlyClicked = defaultArray;
     
     
@@ -98,12 +98,15 @@ export default function () {
         if (e.target.matches('#file-name-button')) {
             const index = e.target.dataset.index;
             currentlyClicked = fileArray[index].tasks;
+            taskTitle.innerHTML = `<h2 class="title">${fileArray[index].name} Tasks</h2>`
             updateTask(fileArray[index].tasks);
         }
     })
 
     defaultButton.addEventListener('click', (e)=>{
         currentlyClicked = defaultArray;
+        taskTitle.innerHTML = `<h2 class="title">Default Tasks</h2>`
+
         updateTask(currentlyClicked);
     })
 }
