@@ -4,6 +4,7 @@ import createFile from './FileObjectFactoryFunction.js';
 import updateFile from './updateFile.js'
 
 const fileArray = [];
+const defaultArray = [];
 
 export default function () {
     const addTaskButton = document.querySelector('.add-task-button');
@@ -12,10 +13,10 @@ export default function () {
     const addButton = document.querySelector('#add-button');
     const taskList = document.querySelector('.task-list');
     const addFileButton = document.getElementById('add-file-button');
-    const defaultButton = document.getElementById('default-button');
+    const defaultButton = document.getElementById('defaultButton');
     const fileNameButton = document.querySelector('#file-name-button');
     const fileUl = document.querySelector('.file-list');
-    let currentlyClicked = null;
+    let currentlyClicked = defaultArray;
     
     
     //clicking add a task will show the form for a task
@@ -99,5 +100,10 @@ export default function () {
             currentlyClicked = fileArray[index].tasks;
             updateTask(fileArray[index].tasks);
         }
+    })
+
+    defaultButton.addEventListener('click', (e)=>{
+        currentlyClicked = defaultArray;
+        updateTask(currentlyClicked);
     })
 }
