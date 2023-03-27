@@ -1,14 +1,12 @@
-import { taskArray } from "./EventListeners.js";
-
-export default function ( taskArray ) {
+export default function (array) {
     const taskUl = document.querySelector('.task-list');
     
     while (taskUl.firstChild) {
         taskUl.removeChild(taskUl.firstChild);
     }
-    if (taskArray.length > 0){
+    if (array.length > 0){
         let counter = 0;
-        taskArray.forEach((object) => {
+        array.forEach((object) => {
             // new list item for a new task
             const newTaskItem = document.createElement('li');
             newTaskItem.setAttribute('class', 'task-li');

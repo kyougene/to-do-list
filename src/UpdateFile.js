@@ -5,10 +5,13 @@ export default function (array) {
         fileUl.firstChild.remove();
     }
 
+    let counter = 0;
+
     array.forEach((object)=> {
         const fileLi = document.createElement('li');
         fileLi.setAttribute('class', 'file-name');
-        fileLi.innerHTML = `<button id='file-name-button'>${object.name}</button>`;
+        fileLi.innerHTML = `<button id='file-name-button' data-index='${counter}'>${object.name}</button>`;
         fileUl.appendChild(fileLi);
+        counter++;
     })
 }

@@ -3,10 +3,7 @@ import updateTask from './UpdateTask.js';
 import createFile from './FileObjectFactoryFunction.js';
 import updateFile from './updateFile.js'
 
-const taskArray = [];
 const fileArray = [];
-export { taskArray };
-export { fileArray };
 
 export default function () {
     const addTaskButton = document.querySelector('.add-task-button');
@@ -16,6 +13,9 @@ export default function () {
     const taskList = document.querySelector('.task-list');
     const addFileButton = document.getElementById('add-file-button');
     const defaultButton = document.getElementById('default-button');
+    const fileNameButton = document.querySelector('#file-name-button');
+    const fileUl = document.querySelector('.file-list');
+    let currentlyClicked = null;
     
     
     //clicking add a task will show the form for a task
@@ -34,8 +34,8 @@ export default function () {
         const task = createTaskObject(taskName, formattedDueDate);
         form.reset();
         formContainer.classList.remove('show');
-        taskArray.push(task);
-        updateTask(taskArray);
+        currentlyClicked.push(task);
+        updateTask(currentlyClicked);
     })
 
     //event listener to delete a task
@@ -43,8 +43,8 @@ export default function () {
         if (e.target.classList.contains('todo-delete')){
             const taskItem = e.target.closest('li');
             const index = taskItem.dataset.index;
-            taskArray.splice(index, 1);
-            updateTask(taskArray);
+            currentlyClicked.splice(index, 1);
+            updateTask(currentlyClicked);
         }
     })
     //complete or un-complete button functionality
@@ -53,7 +53,7 @@ export default function () {
         if (completeButton) {
             const taskItem = completeButton.closest('li');
             const index = taskItem.dataset.index;
-            const task = taskArray[index];
+            const task = currentlyClicked[index];
             task.completed = !(task.completed);
             if (task.completed){
                 taskItem.classList.add('completed');
@@ -93,8 +93,11 @@ export default function () {
         
     })
 
-    
-
-
-
+    fileUl.addEventListener('click', (e)=>{
+        if (e.target.matches('#file-name-button')) {
+            const index = e.target.dataset.index;
+            currentlyClicked = fileArray[index].tasks;
+            updateTask(fileArray[index].tasks);
+        }
+    })
 }
